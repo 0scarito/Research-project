@@ -7,7 +7,10 @@ This project is about a data pipeline that calculates agricultural assets' carbo
 
 For now, the main file is in .ipynb format. But in the future, we will change it to a series of .py files, with the main.py file being the main access point.
 
-Our initial dataset is ![Agriculture Financial Risk Dataset](https://www.kaggle.com/datasets/programmer3/agriculture-financial-risk-dataset). 
+Our main dataset is ![Agriculture Financial Risk Dataset](https://www.kaggle.com/datasets/programmer3/agriculture-financial-risk-dataset). This dataset contains:
++ Financial and economic data at enterprise level(i.e. revenue, debt-to-equity ratio)
++ Climate & environmental proxies(average temperature, rainfall, etc.)
++ Structural descriptors(i.e. enterprise size)
 
 ## Core Assumptions
 Given the limits of the available data, we clarify the following:
