@@ -1,26 +1,43 @@
-import pandas as pd
+"""
+Contains variables for everything
+"""
 
-# this is the config file, which contains all the necessary variables. It lets the user understand things more easily
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict
 
-# define filepaths in advance. This is because it's more harmonious to keep them all in one file, rather than to directly mention them in the code files
-input_path = "data/AgriRiskFin_Dataset.csv"
-figure_output_path = "outputs/figures"
-table_output_path = "outputs/tables"
-report_output_path = "outputs/reports"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
+OUTPUT_DIR = PROJECT_ROOT / "outputs"
+FIG_DIR = OUTPUT_DIR / "figures"
+TABLE_DIR = OUTPUT_DIR / "tables"
+REPORT_DIR = OUTPUT_DIR / "reports"
 
-# allows us to plot three different scenarios where humanity deals with global warming, and how those scenarios affect carbon price
-# carbon price therefore affects strandedness of assets
-carbon_price_scenarios = {
-    "Delayed Transition": 10,
-    "Net Zero(NZ) 2050": 110,
-    "Divergent Net Zero": 300
+RAW_DATA_PATH = DATA_DIR / "AgriRiskFin_Dataset.csv"
+CLEAN_DATA_PATH = DATA_DIR / "data_cleaned.csv"
+
+# Scenario multipliers (your notebook values)
+CARBON_PRICE_SCENARIOS_USD2010: Dict[str, float] = {
+    "Delayed Transition": 10.0,
+    "Net Zero(NZ) 2050": 110.0,
+    "Divergent Net Zero": 300.0,
 }
 
-# miscellaneous variables. Those are just numbers/booleans that you put into model functions and other things.
+# Output generation defaults (your notebook choices)
+DEFAULT_YEARS = 5
+DEFAULT_GROWTH_RATE = 0.02
+DEFAULT_DISCOUNT_RATE = 0.05
 
-# kfold model variables
-# I made random_state to be 37. I just did it for fun.
-# Because of the data's strong internal consistency, and the mechanical connection between revenue/expenses/profit variables, it does not matter
-split_number = 5
-shuffle_truth = True
-random_state = 37
+# Evaluation defaults
+DEFAULT_RANDOM_STATE = 37
+DEFAULT_CV_SPLITS = 5
+TOP_RISK_Q = 0.90  # top 10%
+
+@dataclass(frozen=True)
+class PipelineConfig:
+    random_state: int = DEFAULT_RANDOM_STATE
+    cv_splits: int = DEFAULT_CV_SPLITS
+    years: int = DEFAULT_YEARS
+    growth_rate: float = DEFAULT_GROWTH_RATE
+    discount_rate: float = DEFAULT_DISCOUNT_RATE
+    top_risk_q: float = TOP_RISK_Q

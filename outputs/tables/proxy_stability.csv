@@ -1,0 +1,7 @@
+proxy_a,proxy_b,mad,top10_overlap
+Emissions_Proxy_v1,Emissions_Proxy_v2,0.41012810190931664,0.23246492985971945
+Emissions_Proxy_v1,Emissions_Proxy_v3,0.18176740061829874,0.7034068136272545
+Emissions_Proxy_v1,Emissions_Proxy_v4,0.3920844207133635,0.27655310621242485
+Emissions_Proxy_v2,Emissions_Proxy_v3,0.39546635531818536,0.28256513026052105
+Emissions_Proxy_v2,Emissions_Proxy_v4,0.18219910209780302,0.7134268537074149
+Emissions_Proxy_v3,Emissions_Proxy_v4,0.2563300636933229,0.4529058116232465
