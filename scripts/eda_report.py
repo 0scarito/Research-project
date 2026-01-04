@@ -1,8 +1,15 @@
+import sys
 from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+
 from src.config import RAW_DATA_PATH, FIG_DIR, TABLE_DIR, REPORT_DIR
 from src.io import ensure_dirs, load_raw_data
 from src.eda import compute_eda_summary, save_describe_table, plot_histograms, plot_corr_heatmap, plot_scatter
 from src.reporting import write_markdown, format_eda_summary
+
 
 def main():
     ensure_dirs(FIG_DIR, TABLE_DIR, REPORT_DIR)
